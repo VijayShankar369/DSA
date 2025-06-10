@@ -15,7 +15,6 @@ class Solution {
             }
             insert--;
         }
-
         while(p2 >= 0){
             nums1[insert] = nums2[p2];
             p2--;
