@@ -1,14 +1,24 @@
 class Solution {
     public int hIndex(int[] citations) {
-       int n =  citations.length;
+        int n =  citations.length;
 
-       for(int i=0;i<n;i++){
-        int papersRemaining = n-i;
+        int left = 0;
+        int right = n-1;
+        int h = 0;
 
-        if(citations[i] >= papersRemaining){
-            return papersRemaining;
+        while(left<=right){
+            int middle = left+(right-left)/2;
+
+            int papers = n-middle;
+
+            if(citations[middle]>=papers){
+                h = papers;
+                right = middle-1;
+            }
+            else{
+                left = middle+1;
+            }
         }
-       }
-       return 0;
+        return h;
     }
 }
