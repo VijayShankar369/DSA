@@ -1,26 +1,14 @@
 class Solution {
     public int specialArray(int[] nums) {
-        Arrays.sort(nums);
-
-        int i = 0;
-        int prev = -1;
-        int totalRight = nums.length;
-
-        while(i < nums.length){
-            if(nums[i] == totalRight || (prev < totalRight && totalRight < nums[i])){
-                return totalRight;
-            }
-
-            while(i+1 < nums.length && nums[i] == nums[i+1]){
-                i++;
-            }
-
-
-            prev = nums[i];
-            i++;
-            totalRight = nums.length-i;
+    int n = nums.length;
+    for (int x = 0; x <= n; x++) {
+        int count = 0;
+        for (int num : nums) {
+            if (num >= x) count++;
         }
-
-        return -1;
+        if (count == x) return x;
     }
+    return -1;
+}
+
 }
