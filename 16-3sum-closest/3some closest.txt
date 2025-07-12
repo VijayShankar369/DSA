@@ -1,0 +1,30 @@
+/*
+Function threeSumClosest(nums: array of int, target: int) -> int
+
+    Sort the array nums in ascending order
+
+    Initialize n as length of nums
+    Initialize result = sum of first 3 elements in nums (nums[0] + nums[1] + nums[2])
+
+    For i from 0 to n - 3:
+        Initialize left = i + 1
+        Initialize right = n - 1
+
+        While left < right:
+            sum = nums[i] + nums[left] + nums[right]
+
+            If absolute difference between sum and target is less than 
+               absolute difference between result and target:
+                Set result = sum
+
+            If sum equals target:
+                Return target  // Exact match found
+
+            Else if sum is less than target:
+                Move left pointer right (left = left + 1)
+
+            Else:
+                Move right pointer left (right = right - 1)
+
+    Return result  // Closest sum found
+*/
