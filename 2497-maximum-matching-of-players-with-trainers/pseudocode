@@ -1,3 +1,4 @@
+//GREEDY APPROACH
 FUNCTION matchPlayersAndTrainers(players, trainers):
     SORT players in ascending order
     SORT trainers in ascending order
