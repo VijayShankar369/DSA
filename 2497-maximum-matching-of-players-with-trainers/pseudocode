@@ -1,0 +1,17 @@
+FUNCTION matchPlayersAndTrainers(players, trainers):
+    SORT players in ascending order
+    SORT trainers in ascending order
+
+    SET playerIndex = 0
+    SET trainerIndex = 0
+    SET count = 0
+
+    WHILE playerIndex < length of players AND trainerIndex < length of trainers:
+        IF players[playerIndex] <= trainers[trainerIndex]:
+            INCREMENT count  // Match found
+            INCREMENT playerIndex
+            INCREMENT trainerIndex
+        ELSE:
+            INCREMENT trainerIndex  // Current trainer can't train this player, try next trainer
+
+    RETURN count
