@@ -1,0 +1,10 @@
+//KADANE ALGORITHM
+Function maxSubArray(nums):
+    Initialize curMax ← 0
+    Initialize maxTillNow ← -∞
+
+    For each element num in nums:
+        curMax ← max(num, curMax + num)
+        maxTillNow ← max(maxTillNow, curMax)
+
+    Return maxTillNow
