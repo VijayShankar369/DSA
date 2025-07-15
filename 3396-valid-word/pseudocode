@@ -1,0 +1,22 @@
+FUNCTION isValid(word):
+    IF word is null OR length of word < 3:
+        RETURN false
+
+    SET vowelCount = 0
+    SET consonantCount = 0
+
+    FOR each character c in word:
+        IF c is NOT a letter or digit:
+            RETURN false
+        
+        IF c is a letter:
+            CONVERT c to lowercase
+            IF c is in ['a', 'e', 'i', 'o', 'u']:
+                INCREMENT vowelCount
+            ELSE:
+                INCREMENT consonantCount
+
+    IF vowelCount > 0 AND consonantCount > 0:
+        RETURN true
+    ELSE:
+        RETURN false
