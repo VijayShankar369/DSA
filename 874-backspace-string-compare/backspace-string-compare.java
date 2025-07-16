@@ -1,21 +1,29 @@
+import java.util.Stack;
+
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        return buildString(s).equals(buildString(t));
+        return buildWithStack(s).equals(buildWithStack(t));
     }
 
-    private String buildString(String str) {
-        StringBuilder sb = new StringBuilder();
+    private String buildWithStack(String str) {
+        Stack<Character> stack = new Stack<>();
 
         for (char c : str.toCharArray()) {
             if (c == '#') {
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1); // simulate backspace
+                if (!stack.isEmpty()) {
+                    stack.pop(); // simulate backspace
                 }
             } else {
-                sb.append(c);
+                stack.push(c); // simulate typing
             }
         }
 
-        return sb.toString();
+        // Convert stack to string
+        StringBuilder result = new StringBuilder();
+        for (char c : stack) {
+            result.append(c);
+        }
+
+        return result.toString();
     }
 }
