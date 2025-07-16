@@ -1,0 +1,18 @@
+FUNCTION backspaceCompare(s, t):
+    RETURN buildWithStack(s) == buildWithStack(t)
+
+
+FUNCTION buildWithStack(str):
+    INITIALIZE empty stack
+
+    FOR each character c in str:
+        IF c == '#' AND stack is not empty:
+            POP from stack
+        ELSE IF c != '#':
+            PUSH c onto stack
+
+    INITIALIZE empty string result
+    FOR each character c in stack:
+        APPEND c to result
+
+    RETURN result
