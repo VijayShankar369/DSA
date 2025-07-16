@@ -1,17 +1,18 @@
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
-        Arrays.sort(g);
-        Arrays.sort(s);
+        Arrays.sort(g);  // Sort greed factors
+        Arrays.sort(s);  // Sort cookie sizes
         
-        int i = 0;
-        int j = 0;
-        int count = 0;
-        while(i < g.length && j < s.length){
-            if(s[j] >= g[i]){
+        int i = 0; // child index
+        int j = 0; // cookie index
+        int count = 0; // satisfied children count
+
+        while (i < g.length && j < s.length) {
+            if (s[j] >= g[i]) { // if cookie satisfies the child
                 count++;
-                i++;
+                i++; // move to next child
             }
-            j++;
+            j++; // move to next cookie
         }
 
         return count;
