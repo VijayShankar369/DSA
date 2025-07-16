@@ -1,0 +1,24 @@
+FUNCTION intersect(nums1, nums2):
+    CREATE empty map called counts
+
+    // Step 1: Count frequency of elements in nums1
+    FOR each number in nums1:
+        IF number exists in counts:
+            counts[number] += 1
+        ELSE:
+            counts[number] = 1
+
+    CREATE empty list called result
+
+    // Step 2: Iterate through nums2 and find intersections
+    FOR each number in nums2:
+        IF number exists in counts AND counts[number] > 0:
+            ADD number to result
+            counts[number] -= 1
+
+    // Step 3: Convert result list to array
+    resultArray = new array of size result.length
+    FOR i from 0 to result.length - 1:
+        resultArray[i] = result[i]
+
+    RETURN resultArray
