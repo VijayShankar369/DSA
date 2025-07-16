@@ -1,0 +1,16 @@
+FUNCTION findContentChildren(g, s):
+    SORT array g in ascending order     // greed factors of children
+    SORT array s in ascending order     // cookie sizes
+
+    SET childIndex = 0                  // points to current child
+    SET cookieIndex = 0                 // points to current cookie
+    SET count = 0                       // number of satisfied children
+
+    WHILE childIndex < length of g AND cookieIndex < length of s:
+        IF s[cookieIndex] >= g[childIndex]:   // cookie can satisfy the child
+            INCREMENT count                   // child is satisfied
+            INCREMENT childIndex              // move to next child
+
+        INCREMENT cookieIndex                 // move to next cookie
+
+    RETURN count
