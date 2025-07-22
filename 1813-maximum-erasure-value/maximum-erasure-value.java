@@ -14,7 +14,11 @@ class Solution {
             }
             seen.add(nums[right]);
             currentSum += nums[right];
-           maxSum = Math.max(maxSum, currentSum);
+
+            if(currentSum > maxSum){
+                maxSum = currentSum;
+            }
+           
     
         }
         return maxSum;
