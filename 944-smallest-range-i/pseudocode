@@ -1,0 +1,20 @@
+function getMinimumScore(nums, k):
+    Initialize maxVal = -infinity
+    Initialize minVal = +infinity
+
+    // Step 1: Find max and min in the array
+    for each number in nums:
+        if number > maxVal:
+            maxVal = number
+        if number < minVal:
+            minVal = number
+
+    // Step 2: Use formula to compute minimum possible score
+    diff = maxVal - minVal
+    reducedDiff = diff - 2 * k
+
+    // Step 3: Score can't be negative, so return max(0, reducedDiff)
+    if reducedDiff < 0:
+        return 0
+    else:
+        return reducedDiff
