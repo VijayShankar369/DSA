@@ -1,0 +1,13 @@
+function isRotatedSorted(nums):
+    n = length of nums
+    count = 0   // number of times nums[i] > nums[i+1]
+
+    for i from 0 to n - 1:
+        nextIndex = (i + 1) % n   // wrap around to 0 at end
+        if nums[i] > nums[nextIndex]:
+            count = count + 1
+
+    if count <= 1:
+        return true
+    else:
+        return false
