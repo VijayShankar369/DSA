@@ -1,34 +1,18 @@
 class Solution {
     public int longestSubstring(String s, int k) {
-        if(s == null || s.isEmpty() || k > s.length()){
-            return 0;
+        int n = s.length();
+        int[] freq = new int[26];
+        for (char ch : s.toCharArray()) {
+            freq[ch - 'a']++;
         }
 
-        int[] countMap = new int[26];
-        int n = s.length();
-        int result = 0;
-
-        for(int start = 0; start < n;start++){
-            Arrays.fill(countMap,0);
-
-            for(int end = start; end < n; end++){
-                countMap[s.charAt(end) - 'a']++;
-
-                if(isValid(s,start,end,k,countMap)){
-                    result = Math.max(result,end-start+1);
-                }
+        for (int i = 0; i < n; i++) {
+            if (freq[s.charAt(i) - 'a'] < k) {
+                int left = longestSubstring(s.substring(0, i), k);
+                int right = longestSubstring(s.substring(i + 1), k);
+                return Math.max(left, right);
             }
         }
-        return result;
-    }
-
-    private boolean isValid(String s, int start,int end,int k,int[] countMap){
-        int countLetters = 0, countAtLeastK = 0;
-
-        for(int freq : countMap){
-            if(freq > 0) countLetters++;
-            if(freq >= k) countAtLeastK++;
-        }
-        return countAtLeastK == countLetters;
+        return n;
     }
 }
