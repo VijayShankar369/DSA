@@ -1,22 +1,19 @@
 class Solution {
     public int countHillValley(int[] nums) {
-        List<Integer> uniqueList = new ArrayList<>();
-        uniqueList.add(nums[0]);
-
-        for(int i=1;i<nums.length;i++){
-            if(nums[i] != nums[i-1]){
-                uniqueList.add(nums[i]);
-            }
-        }
-
         int count = 0;
-        for(int i=1;i<uniqueList.size()-1;i++){
-            int prev = uniqueList.get(i-1);
-            int curr = uniqueList.get(i);
-            int next = uniqueList.get(i+1);
 
-            if(curr > next && curr > prev || curr < next && curr < prev){
-                count++;
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i - 1]) continue;
+
+            int j = i + 1;
+            while (j < nums.length && nums[i] == nums[j]) j++;
+
+            if (j < nums.length) {
+                if (nums[i] > nums[i - 1] && nums[i] > nums[j]) {
+                    count++; // Hill
+                } else if (nums[i] < nums[i - 1] && nums[i] < nums[j]) {
+                    count++; // Valley
+                }
             }
         }
 
