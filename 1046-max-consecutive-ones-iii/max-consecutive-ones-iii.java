@@ -3,8 +3,9 @@ class Solution {
        int zeros = 0;
        int left = 0;
        int maxLength = 0;
+       int n = nums.length;
 
-       for(int right = 0;right < nums.length; right++){
+       for(int right=0;right<n;right++){
             if(nums[right] == 0){
                 zeros++;
             }
@@ -16,8 +17,8 @@ class Solution {
                 left++;
             }
 
-            maxLength = Math.max(maxLength, right-left+1);
-       } 
+            maxLength = Math.max(maxLength,right-left+1);
+       }
 
        return maxLength;
     }
