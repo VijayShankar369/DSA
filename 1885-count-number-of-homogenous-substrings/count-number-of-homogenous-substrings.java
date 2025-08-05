@@ -7,36 +7,19 @@ class Solution {
         int mod = (int)Math.pow(10,9)+7;
         
         while(right<n){
-            if(s.charAt(left) == s.charAt(right)){
+            long sum=0;
+            while(right<n && s.charAt(left) == s.charAt(right)){
                 right++;
+                sum+=(right-left);
             }
-            else{
-                long sum = right - left;
-
-                sum=func(sum)%mod;
-                System.out.println(sum);
-
-                result += sum;
+                result += sum%mod;
                 result%=mod;
-
                 left = right;
             }
-            System.out.println(left+" "+right);
+            return (int)result;
+            // System.out.println(left+" "+right);
         }
-        long sum = right - left;
-        sum=func(sum)%mod;
-        result += sum;
-        result%=mod;
 
 
-        return (int)result;
-    }
-
-    private long func(long sum){
-        if(sum == 1){
-            return 1L;
-        }
         
-        return sum + func(sum-1);
-    }
 }
