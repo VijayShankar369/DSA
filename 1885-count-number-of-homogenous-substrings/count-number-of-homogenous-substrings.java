@@ -1,6 +1,7 @@
 class Solution {
     public int countHomogenous(String s) {
-        int n = s.length();
+        char[] arr = s.toCharArray();
+        int n = arr.length;
         int left = 0;
         int right = 0;
         long result = 0;
