@@ -9,7 +9,7 @@ class Solution {
         
         while(right<n){
             long sum=0;
-            while(right<n && s.charAt(left) == s.charAt(right)){
+            while(right<n && arr[left] == arr[right]){
                 right++;
                 sum+=(right-left);
             }
